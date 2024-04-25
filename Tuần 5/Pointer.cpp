@@ -1,19 +1,21 @@
-#include <stdio.h>
 #include <iostream>
-#include <math.h>
+#include <cmath>
+
 void update(int* a, int* b) {
-    int temp = *a;
-    *a = (*a) + (*b);
-    *b = std::abs((temp - *b));
+    int sum = *a + *b;
+    int diff = std::abs(*a - *b);
+    
+    *a = sum;
+    *b = diff;
 }
 
 int main() {
     int a, b;
-    int* pa = &a, * pb = &b;
 
-    scanf("%d %d", &a, &b);
-    update(pa, pb);
-    printf("%d\n%d", a, b);
+    std::cin >> a >> b;
+    update(&a, &b);
+    std::cout << a << "\n" << b;
 
     return 0;
 }
+
